@@ -14,4 +14,16 @@ class Student
   def display
     puts "ID: #{self.id}, Name: #{self.name}, birth_date: #{self.birth_date}, Email: #{self.email}, Phone Number: #{self.phone_number}"
   end
+
+  def self.all
+    return @@records
+  end
+
+  def self.find(id)
+    return @@records.find {|student|student == id}
+  end
+
+  def self.find_by_email(email)
+    return @@records.find {|student|student == email}
+  end
 end
