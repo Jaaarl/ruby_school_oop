@@ -27,12 +27,13 @@ while true
   puts "Choose a number"
   puts "[1] Adds New Student"
   puts "[2] Deletes Student"
+  puts "[3] Exit"
   case choice = gets.chomp.to_i
   when 1
     new_student
   when 2
     delete_student
-  else
+  when 3
     exit
   end
 end
