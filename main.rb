@@ -5,14 +5,14 @@ require_relative 'teacher'
 
 def new_student
   student = Student.new
-  puts "Enter Name"
+  puts "Enter name"
   student.id = Student.all.size + 1
   student.name = gets.chomp
   puts "Enter birth date"
   student.birth_date = gets.chomp
-  puts "Enter Email"
+  puts "Enter email"
   student.email = gets.chomp
-  puts "Enter Phone Number"
+  puts "Enter phone number"
   student.phone_number = gets.chomp.to_i
   student.save
   puts student.display
@@ -21,7 +21,7 @@ end
 
 def delete_student
   student = Student.new
-  puts "Enter the Id of student to be deleted"
+  puts "Enter the id of student to be deleted"
   student = Student.find(gets.chomp.to_i)
   if student
     student.destroy
@@ -33,7 +33,7 @@ end
 
 def new_course
   course = Course.new
-  puts "Enter course Name"
+  puts "Enter course name"
   course.id = Course.all.size + 1
   course.name = gets.chomp
   course.save
@@ -43,7 +43,7 @@ end
 
 def delete_course
   course = Course.new
-  puts "Enter the Id of course to be deleted"
+  puts "Enter the id of course to be deleted"
   course = Course.find(gets.chomp.to_i)
   if course
     course.destroy
@@ -65,28 +65,28 @@ end
 
 def delete_subject
   subject = Subject.new
-  puts "Enter the Id of course to be deleted"
+  puts "Enter the id of subject to be deleted"
   subject = Subject.find(gets.chomp.to_i)
   if subject
     subject.destroy
     puts "Subject destroyed successfully!"
   else
-    puts "User not found\n"
+    puts "Subject not found\n"
   end
 end
 
 def new_teacher
   teacher = Teacher.new
-  puts "Enter Name"
+  puts "Enter name"
   teacher.id = Teacher.all.size + 1
   teacher.name = gets.chomp
-  puts "Enter Birth date"
+  puts "Enter birth date"
   teacher.birth_date = gets.chomp
-  puts "Enter Email"
+  puts "Enter email"
   teacher.email = gets.chomp
-  puts "Enter Phone Number"
+  puts "Enter phone number"
   teacher.phone_number = gets.chomp.to_i
-  puts "Enter Department"
+  puts "Enter department"
   teacher.department = gets.chomp.to_i
   teacher.save
   puts teacher.display
@@ -95,7 +95,7 @@ end
 
 def delete_teacher
   teacher = Teacher.new
-  puts "Enter the Id of Teacher to be deleted"
+  puts "Enter the id of teacher to be deleted"
   teacher = Teacher.find(gets.chomp.to_i)
   if teacher
     teacher.destroy
@@ -104,7 +104,6 @@ def delete_teacher
     puts "Teacher not found\n"
   end
 end
-
 
 while true
   puts "Choose a number"
@@ -116,8 +115,8 @@ while true
   choice = gets.chomp.to_i
   if choice == 1
     puts "Choose a number"
-    puts "[1] Adds New Student"
-    puts "[2] Deletes Student"
+    puts "[1] Adds new student"
+    puts "[2] Deletes student"
     choice_2 = gets.chomp.to_i
     case choice_2
     when 1
@@ -125,12 +124,12 @@ while true
     when 2
       delete_student
     else
-      puts "invalid choice"
+      puts "Invalid choice"
     end
   elsif choice == 2
     puts "Choose a number"
-    puts "[1] Adds New Course"
-    puts "[2] Deletes Course"
+    puts "[1] Adds new course"
+    puts "[2] Deletes course"
     choice_3 = gets.chomp.to_i
     case choice_3
     when 1
@@ -138,12 +137,12 @@ while true
     when 2
       delete_course
     else
-      puts "invalid Course"
+      puts "Invalid choice"
     end
   elsif choice == 3
     puts "Choose a number"
-    puts "[1] Adds New Subject"
-    puts "[2] Deletes Subject"
+    puts "[1] Adds new subject"
+    puts "[2] Deletes subject"
     choice_2 = gets.chomp.to_i
     case choice_2
     when 1
@@ -151,12 +150,12 @@ while true
     when 2
       delete_subject
     else
-      puts "invalid choice"
+      puts "Invalid choice"
     end
   elsif choice == 4
     puts "Choose a number"
-    puts "[1] Adds New Teacher"
-    puts "[2] Deletes Teacher"
+    puts "[1] Adds new teacher"
+    puts "[2] Deletes teacher"
     choice_2 = gets.chomp.to_i
     case choice_2
     when 1
@@ -164,12 +163,12 @@ while true
     when 2
       delete_teacher
     else
-      puts "invalid choice"
+      puts "Invalid choice"
     end
   elsif choice == 5
     exit
   else
-    puts "invalid choice"
+    puts "Invalid choice"
   end
 end
 
