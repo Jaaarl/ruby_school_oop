@@ -1,6 +1,7 @@
 require_relative 'student'
 require_relative 'course'
 require_relative 'subject'
+require_relative 'teacher'
 
 def new_student
   student = Student.new
@@ -74,12 +75,33 @@ def delete_subject
   end
 end
 
+def new_teacher
+  teacher = Teacher.new
+  puts "Enter Name"
+  teacher.id = Teacher.all.size + 1
+  teacher.name = gets.chomp
+  puts "Enter Birth date"
+  teacher.birth_date = gets.chomp
+  puts "Enter Email"
+  teacher.email = gets.chomp
+  puts "Enter Phone Number"
+  teacher.phone_number = gets.chomp.to_i
+  puts "Enter Department"
+  teacher.department = gets.chomp.to_i
+  teacher.save
+  puts teacher.display
+  puts "Teacher added successfully!"
+end
+
+
+
 while true
   puts "Choose a number"
   puts "[1] Student management"
   puts "[2] Course management"
   puts "[3] Subject management"
-  puts "[4] Exit"
+  puts "[4] Teacher management"
+  puts "[5] Exit"
   choice = gets.chomp.to_i
   if choice == 1
     puts "Choose a number"
@@ -121,6 +143,19 @@ while true
       puts "invalid choice"
     end
   elsif choice == 4
+    puts "Choose a number"
+    puts "[1] Adds New Teacher"
+    puts "[2] Deletes Teacher"
+    choice_2 = gets.chomp.to_i
+    case choice_2
+    when 1
+      new_teacher
+    when 2
+
+    else
+      puts "invalid choice"
+    end
+  elsif choice == 5
     exit
   else
     puts "invalid choice"
