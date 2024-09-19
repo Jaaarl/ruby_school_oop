@@ -1,6 +1,6 @@
 require_relative 'student'
 
-def new_user
+def new_student
   student = Student.new
   puts "Enter Name"
   student.id = Student.all.size + 1
@@ -16,4 +16,4 @@ def new_user
   puts "Student added successfully!"
 end
 
-new_user
+new_student
