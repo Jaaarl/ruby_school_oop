@@ -1,5 +1,6 @@
 require_relative 'student'
 require_relative 'course'
+require_relative 'subject'
 
 def new_student
   student = Student.new
@@ -25,7 +26,7 @@ def delete_student
     student.destroy
     puts "Student destroyed successfully!"
   else
-    puts "User not found\n"
+    puts "Student not found\n"
   end
 end
 
@@ -47,15 +48,38 @@ def delete_course
     course.destroy
     puts "Course destroyed successfully!"
   else
+    puts "Course not found\n"
+  end
+end
+
+def new_subject
+  subject = Subject.new
+  puts "Enter subject name"
+  subject.id = Subject.all.size + 1
+  subject.name = gets.chomp
+  subject.save
+  puts subject.display
+  puts "Subject added successfully!"
+end
+
+def delete_subject
+  subject = Subject.new
+  puts "Enter the Id of course to be deleted"
+  subject = Subject.find(gets.chomp.to_i)
+  if subject
+    subject.destroy
+    puts "Subject destroyed successfully!"
+  else
     puts "User not found\n"
   end
 end
 
 while true
   puts "Choose a number"
-  puts "[1] Student Management"
+  puts "[1] Student management"
   puts "[2] Course management"
-  puts "[3] Exit"
+  puts "[3] Subject management"
+  puts "[4] Exit"
   choice = gets.chomp.to_i
   if choice == 1
     puts "Choose a number"
@@ -84,6 +108,19 @@ while true
       puts "invalid Course"
     end
   elsif choice == 3
+    puts "Choose a number"
+    puts "[1] Adds New Subject"
+    puts "[2] Deletes Subject"
+    choice_2 = gets.chomp.to_i
+    case choice_2
+    when 1
+      new_subject
+    when 2
+      delete_subject
+    else
+      puts "invalid choice"
+    end
+  elsif choice == 4
     exit
   else
     puts "invalid choice"
