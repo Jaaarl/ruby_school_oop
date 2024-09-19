@@ -18,9 +18,15 @@ end
 
 def delete_student
   student = Student.new
-  student = Student.find(1)
-  student.destroy
-  puts "Student destroyed successfully!"
+  puts "Enter the Id of student to be deleted"
+  student = Student.find(gets.chomp.to_i)
+  if student
+    student.destroy
+    puts "Student destroyed successfully!"
+  else
+    puts "User not found\n"
+  end
+
 end
 
 while true
