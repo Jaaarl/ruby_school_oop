@@ -39,6 +39,18 @@ def new_course
   puts "Course added successfully!"
 end
 
+def delete_course
+  course = Course.new
+  puts "Enter the Id of course to be deleted"
+  course = Course.find(gets.chomp.to_i)
+  if course
+    course.destroy
+    puts "Course destroyed successfully!"
+  else
+    puts "User not found\n"
+  end
+end
+
 while true
   puts "Choose a number"
   puts "[1] Student Management"
@@ -67,7 +79,7 @@ while true
     when 1
       new_course
     when 2
-      puts "Deletes Course"
+      delete_course
     else
       puts "invalid Course"
     end
