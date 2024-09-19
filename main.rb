@@ -1,4 +1,5 @@
 require_relative 'student'
+require_relative 'course'
 
 def new_student
   student = Student.new
@@ -26,20 +27,55 @@ def delete_student
   else
     puts "User not found\n"
   end
+end
 
+def new_course
+  course = Course.new
+  puts "Enter course Name"
+  course.id = Course.all.size + 1
+  course.name = gets.chomp
+  course.save
+  puts course.display
+  puts "Course added successfully!"
 end
 
 while true
   puts "Choose a number"
-  puts "[1] Adds New Student"
-  puts "[2] Deletes Student"
+  puts "[1] Student Management"
+  puts "[2] Course management"
   puts "[3] Exit"
-  case choice = gets.chomp.to_i
-  when 1
-    new_student
-  when 2
-    delete_student
-  when 3
+  choice = gets.chomp.to_i
+  if choice == 1
+    puts "Choose a number"
+    puts "[1] Adds New Student"
+    puts "[2] Deletes Student"
+    choice_2 = gets.chomp.to_i
+    case choice_2
+    when 1
+      new_student
+    when 2
+      delete_student
+    else
+      puts "invalid choice"
+    end
+  elsif choice == 2
+    puts "Choose a number"
+    puts "[1] Adds New Course"
+    puts "[2] Deletes Course"
+    choice_3 = gets.chomp.to_i
+    case choice_3
+    when 1
+      new_course
+    when 2
+      puts "Deletes Course"
+    else
+      puts "invalid Course"
+    end
+  elsif choice == 3
     exit
+  else
+    puts "invalid choice"
   end
 end
+
+
