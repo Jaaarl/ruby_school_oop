@@ -31,6 +31,13 @@ def delete_student
   end
 end
 
+def display_student
+  puts "List of Students"
+  Student.all.each do |student|
+    puts student.display
+  end
+end
+
 def new_course
   course = Course.new
   puts "Enter course name"
@@ -53,6 +60,13 @@ def delete_course
   end
 end
 
+def display_course
+  puts "List of courses"
+  Course.all.each do |course|
+    puts course.display
+  end
+end
+
 def new_subject
   subject = Subject.new
   puts "Enter subject name"
@@ -72,6 +86,13 @@ def delete_subject
     puts "Subject destroyed successfully!"
   else
     puts "Subject not found\n"
+  end
+end
+
+def display_subject
+  puts "List of Subjects"
+  Subject.all.each do |subject|
+    puts subject.display
   end
 end
 
@@ -105,6 +126,13 @@ def delete_teacher
   end
 end
 
+def display_teacher
+  puts "List of Teachers"
+  Teacher.all.each do |teacher|
+    puts teacher.display
+  end
+end
+
 while true
   puts "Choose a number"
   puts "[1] Student management"
@@ -117,12 +145,15 @@ while true
     puts "Choose a number"
     puts "[1] Adds new student"
     puts "[2] Deletes student"
+    puts "[3] Display students"
     choice_2 = gets.chomp.to_i
     case choice_2
     when 1
       new_student
     when 2
       delete_student
+    when 3
+      display_student
     else
       puts "Invalid choice"
     end
@@ -130,12 +161,15 @@ while true
     puts "Choose a number"
     puts "[1] Adds new course"
     puts "[2] Deletes course"
+    puts "[3] Display courses"
     choice_3 = gets.chomp.to_i
     case choice_3
     when 1
       new_course
     when 2
       delete_course
+    when 3
+      display_course
     else
       puts "Invalid choice"
     end
@@ -143,12 +177,15 @@ while true
     puts "Choose a number"
     puts "[1] Adds new subject"
     puts "[2] Deletes subject"
+    puts "[3] Display subjects"
     choice_2 = gets.chomp.to_i
     case choice_2
     when 1
       new_subject
     when 2
       delete_subject
+    when 3
+      display_subject
     else
       puts "Invalid choice"
     end
@@ -156,12 +193,15 @@ while true
     puts "Choose a number"
     puts "[1] Adds new teacher"
     puts "[2] Deletes teacher"
+    puts "[3] Display teachers"
     choice_2 = gets.chomp.to_i
     case choice_2
     when 1
       new_teacher
     when 2
       delete_teacher
+    when 3
+      display_teacher
     else
       puts "Invalid choice"
     end
