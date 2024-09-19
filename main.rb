@@ -93,6 +93,17 @@ def new_teacher
   puts "Teacher added successfully!"
 end
 
+def delete_teacher
+  teacher = Teacher.new
+  puts "Enter the Id of Teacher to be deleted"
+  teacher = Teacher.find(gets.chomp.to_i)
+  if teacher
+    teacher.destroy
+    puts "Teacher destroyed successfully!"
+  else
+    puts "Teacher not found\n"
+  end
+end
 
 
 while true
@@ -151,7 +162,7 @@ while true
     when 1
       new_teacher
     when 2
-
+      delete_teacher
     else
       puts "invalid choice"
     end
