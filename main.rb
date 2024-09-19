@@ -16,4 +16,23 @@ def new_student
   puts "Student added successfully!"
 end
 
-new_student
+def delete_student
+  student = Student.new
+  student = Student.find(1)
+  student.destroy
+  puts "Student destroyed successfully!"
+end
+
+while true
+  puts "Choose a number"
+  puts "[1] Adds New Student"
+  puts "[2] Deletes Student"
+  case choice = gets.chomp.to_i
+  when 1
+    new_student
+  when 2
+    delete_student
+  else
+    exit
+  end
+end
