@@ -15,4 +15,11 @@ class Course
     puts "ID: #{self.id}, Name: #{self.name}"
   end
 
+  def self.all
+    return @@records
+  end
+
+  def self.find(id)
+    return @@records.find { |course| course.id == id }
+  end
 end
