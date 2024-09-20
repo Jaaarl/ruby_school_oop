@@ -14,6 +14,7 @@ def new_student
   student.email = gets.chomp
   puts "Enter phone number"
   student.phone_number = gets.chomp.to_i
+  student.deleted_at = nil
   student.save
   puts student.display
   puts "Student added successfully!"
@@ -34,7 +35,9 @@ end
 def display_student
   puts "List of Students"
   Student.all.each do |student|
-    puts student.display
+    if student.deleted_at == nil
+      puts student.display
+    end
   end
 end
 
@@ -43,6 +46,7 @@ def new_course
   puts "Enter course name"
   course.id = Course.all.size + 1
   course.name = gets.chomp
+  course.deleted_at = nil
   course.save
   puts course.display
   puts "Course added successfully!"
@@ -63,7 +67,9 @@ end
 def display_course
   puts "List of courses"
   Course.all.each do |course|
-    puts course.display
+    if course.deleted_at == nil
+      puts course.display
+    end
   end
 end
 
@@ -72,6 +78,7 @@ def new_subject
   puts "Enter subject name"
   subject.id = Subject.all.size + 1
   subject.name = gets.chomp
+  subject.deleted_at = nil
   subject.save
   puts subject.display
   puts "Subject added successfully!"
@@ -92,7 +99,9 @@ end
 def display_subject
   puts "List of Subjects"
   Subject.all.each do |subject|
-    puts subject.display
+    if subject.deleted_at == nil
+      puts subject.display
+    end
   end
 end
 
@@ -129,7 +138,9 @@ end
 def display_teacher
   puts "List of Teachers"
   Teacher.all.each do |teacher|
-    puts teacher.display
+    if teacher.deleted_at == nil
+      puts teacher.display
+    end
   end
 end
 
