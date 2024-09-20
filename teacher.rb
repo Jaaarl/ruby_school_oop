@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 class Teacher
-  attr_accessor :id, :name, :birth_date, :email, :phone_number, :department
+  attr_accessor :id, :name, :birth_date, :email, :phone_number, :department, :deleted_at
   @@records = []
 
   def save
