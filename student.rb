@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 class Student
-  attr_accessor :id, :name, :birth_date, :email, :phone_number
+  attr_accessor :id, :name, :birth_date, :email, :phone_number, :deleted_at
   @@records = []
 
   def save
@@ -8,7 +8,7 @@ class Student
   end
 
   def destroy
-    @@records.delete(self)
+    self.deleted_at = Time.now
   end
 
   def display
