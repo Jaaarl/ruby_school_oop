@@ -8,7 +8,7 @@ class Teacher
   end
 
   def destroy
-    @@records.delete(self)
+    self.deleted_at = Time.now
   end
 
   def display
