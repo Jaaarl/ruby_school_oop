@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 class Subject
-  attr_accessor :id, :name
+  attr_accessor :id, :name, :deleted_at
   @@records = []
 
   def save
