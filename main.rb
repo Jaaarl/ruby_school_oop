@@ -20,6 +20,17 @@ def new_student
   puts "Student added successfully!"
 end
 
+def update_student
+  student = Student.new
+  puts "Enter ID to Edit"
+  student = Student.find(gets.chomp.to_i)
+  if student == nil
+    puts "User Not found"
+  else 
+    student.save
+  end
+end
+
 def delete_student
   student = Student.new
   puts "Enter the id of student to be deleted"
@@ -64,6 +75,17 @@ def delete_course
   end
 end
 
+def update_course
+  course = Course.new
+  puts "Enter ID to Edit"
+  course = Course.find(gets.chomp.to_i)
+  if course == nil
+    puts "User Not found"
+  else 
+    course.save
+  end
+end
+
 def display_course
   puts "List of courses"
   Course.all.each do |course|
@@ -96,6 +118,17 @@ def delete_subject
   end
 end
 
+def update_subject
+  subject = Subject.new
+  puts "Enter ID to Edit"
+  subject = Subject.find(gets.chomp.to_i)
+  if subject == nil
+    puts "User Not found"
+  else 
+    subject.save
+  end
+end
+
 def display_subject
   puts "List of Subjects"
   Subject.all.each do |subject|
@@ -117,7 +150,7 @@ def new_teacher
   puts "Enter phone number"
   teacher.phone_number = gets.chomp.to_i
   puts "Enter department"
-  teacher.department = gets.chomp.to_i
+  teacher.department = gets.chomp
   teacher.save
   puts teacher.display
   puts "Teacher added successfully!"
@@ -132,6 +165,17 @@ def delete_teacher
     puts "Teacher destroyed successfully!"
   else
     puts "Teacher not found\n"
+  end
+end
+
+def update_teacher
+  teacher = Teacher.new
+  puts "Enter ID to Edit"
+  teacher = Teacher.find(gets.chomp.to_i)
+  if teacher == nil
+    puts "User Not found"
+  else 
+    teacher.save
   end
 end
 
@@ -157,6 +201,7 @@ while true
     puts "[1] Adds new student"
     puts "[2] Deletes student"
     puts "[3] Display students"
+    puts "[4] Update student"
     choice_2 = gets.chomp.to_i
     case choice_2
     when 1
@@ -165,6 +210,8 @@ while true
       delete_student
     when 3
       display_student
+    when 4
+      update_student
     else
       puts "Invalid choice"
     end
@@ -173,6 +220,7 @@ while true
     puts "[1] Adds new course"
     puts "[2] Deletes course"
     puts "[3] Display courses"
+    puts "[4] Update course"
     choice_3 = gets.chomp.to_i
     case choice_3
     when 1
@@ -181,6 +229,8 @@ while true
       delete_course
     when 3
       display_course
+    when 4
+      update_course
     else
       puts "Invalid choice"
     end
@@ -189,6 +239,7 @@ while true
     puts "[1] Adds new subject"
     puts "[2] Deletes subject"
     puts "[3] Display subjects"
+    puts "[4] Update subject"
     choice_2 = gets.chomp.to_i
     case choice_2
     when 1
@@ -197,6 +248,8 @@ while true
       delete_subject
     when 3
       display_subject
+    when 4
+      update_subject
     else
       puts "Invalid choice"
     end
@@ -205,6 +258,7 @@ while true
     puts "[1] Adds new teacher"
     puts "[2] Deletes teacher"
     puts "[3] Display teachers"
+    puts "[4] Update teacher"
     choice_2 = gets.chomp.to_i
     case choice_2
     when 1
@@ -213,6 +267,8 @@ while true
       delete_teacher
     when 3
       display_teacher
+    when 4
+      update_teacher
     else
       puts "Invalid choice"
     end
