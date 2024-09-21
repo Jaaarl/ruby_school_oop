@@ -15,7 +15,7 @@ class Teacher
       puts "Enter phone number"
       existing_teacher.phone_number = gets.chomp.to_i
       puts "Enter Department"
-      existing_teacher.department = gets.chomp.to_i
+      existing_teacher.department = gets.chomp
       puts self.display
       puts "Teacher Updated successfully!"
     else
