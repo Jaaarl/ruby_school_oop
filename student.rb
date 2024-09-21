@@ -1,6 +1,7 @@
 # frozen_string_literal: true
+require_relative 'course'
 class Student
-  attr_accessor :id, :name, :birth_date, :email, :phone_number, :deleted_at
+  attr_accessor :id, :name, :birth_date, :email, :phone_number, :deleted_at, :course_id
   @@records = []
 
   def save
@@ -14,6 +15,14 @@ class Student
       existing_student.email = gets.chomp
       puts "Enter phone number"
       existing_student.phone_number = gets.chomp.to_i
+      puts "List of courses"
+      Course.all.each do |course|
+        if course.deleted_at == nil
+          puts course.display
+        end
+      end
+      puts "Enter Course ID"
+      existing_student.course_id = gets.chomp.to_i
       puts self.display
       puts "Student Updated successfully!"
     else
@@ -26,7 +35,7 @@ class Student
   end
 
   def display
-    puts "ID: #{self.id}, Name: #{self.name}, birth_date: #{self.birth_date}, Email: #{self.email}, Phone Number: #{self.phone_number}"
+    puts "ID: #{self.id}, Name: #{self.name}, birth_date: #{self.birth_date}, Email: #{self.email}, Phone Number: #{self.phone_number}, Course ID: #{self.course_id}"
   end
 
   def self.all
