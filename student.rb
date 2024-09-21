@@ -4,9 +4,23 @@ class Student
   @@records = []
 
   def save
-    @@records.prepend(self)
+    if id > 0 && id < self.class.all.size + 1
+      existing_student = self.class.all.find { |student| student.id == id }
+      puts "Enter name"  
+      existing_student.name = gets.chomp
+      puts "Enter birth date"
+      existing_student.birth_date = gets.chomp
+      puts "Enter email"
+      existing_student.email = gets.chomp
+      puts "Enter phone number"
+      existing_student.phone_number = gets.chomp.to_i
+      puts self.display
+      puts "Student Updated successfully!"
+    else
+      @@records.prepend(self)   
+    end
   end
-
+  
   def destroy
     self.deleted_at = Time.now
   end
