@@ -4,7 +4,15 @@ class Subject
   @@records = []
 
   def save
-    @@records.prepend(self)
+    if id > 0 && id < self.class.all.size + 1
+      existing_subject = self.class.all.find { |subject| subject.id == id }
+      puts "Enter name"  
+      existing_subject.name = gets.chomp
+      puts self.display
+      puts "Subject updated successfully!"
+    else
+      @@records.prepend(self)   
+    end
   end
 
   def destroy
