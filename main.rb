@@ -14,6 +14,14 @@ def new_student
   student.email = gets.chomp
   puts "Enter phone number"
   student.phone_number = gets.chomp.to_i
+  puts "List of courses"
+  Course.all.each do |course|
+    if course.deleted_at == nil
+      puts course.display
+    end
+  end
+  puts "Enter Course ID"
+  student.course_id = gets.chomp.to_i
   student.deleted_at = nil
   student.save
   puts student.display
