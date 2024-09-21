@@ -196,6 +196,7 @@ def display_teacher
   end
 end
 
+menu = false
 while true
   puts "Choose a number"
   puts "[1] Student management"
@@ -205,81 +206,106 @@ while true
   puts "[5] Exit"
   choice = gets.chomp.to_i
   if choice == 1
-    puts "Choose a number"
-    puts "[1] Adds new student"
-    puts "[2] Deletes student"
-    puts "[3] Display students"
-    puts "[4] Update student"
-    choice_2 = gets.chomp.to_i
-    case choice_2
-    when 1
-      new_student
-    when 2
-      delete_student
-    when 3
-      display_student
-    when 4
-      update_student
-    else
-      puts "Invalid choice"
+    menu = true
+    while menu
+      puts "Choose a number"
+      puts "[1] Adds new student"
+      puts "[2] Deletes student"
+      puts "[3] Display students"
+      puts "[4] Update student"
+      puts "[5] Back to school management"
+      choice_2 = gets.chomp.to_i
+      case choice_2
+      when 1
+        new_student
+      when 2
+        delete_student
+      when 3
+        display_student
+      when 4
+        update_student
+      when 5
+        menu = false
+      else
+        puts "Invalid choice"
+      end 
     end
   elsif choice == 2
-    puts "Choose a number"
-    puts "[1] Adds new course"
-    puts "[2] Deletes course"
-    puts "[3] Display courses"
-    puts "[4] Update course"
-    choice_3 = gets.chomp.to_i
-    case choice_3
-    when 1
-      new_course
-    when 2
-      delete_course
-    when 3
-      display_course
-    when 4
-      update_course
-    else
-      puts "Invalid choice"
+    menu = true
+    while menu
+      puts "Choose a number"
+      puts "[1] Adds new course"
+      puts "[2] Deletes course"
+      puts "[3] Display courses"
+      puts "[4] Update course"
+      puts "[5] Back to school management"
+      choice_3 = gets.chomp.to_i
+      case choice_3
+      when 1
+        new_course
+      when 2
+        delete_course
+      when 3
+        display_course
+      when 4
+        update_course
+      when 5
+        menu = false
+      else
+        puts "Invalid choice"
+      end
     end
   elsif choice == 3
-    puts "Choose a number"
-    puts "[1] Adds new subject"
-    puts "[2] Deletes subject"
-    puts "[3] Display subjects"
-    puts "[4] Update subject"
-    choice_2 = gets.chomp.to_i
-    case choice_2
-    when 1
-      new_subject
-    when 2
-      delete_subject
-    when 3
-      display_subject
-    when 4
-      update_subject
-    else
-      puts "Invalid choice"
+    menu = true
+    while menu
+      puts "Choose a number"
+      puts "[1] Adds new subject"
+      puts "[2] Deletes subject"
+      puts "[3] Display subjects"
+      puts "[4] Update subject"
+      puts "[5] Back to school management"
+      choice_2 = gets.chomp.to_i
+      case choice_2
+      when 1
+        new_subject
+      when 2
+        delete_subject
+      when 3
+        display_subject
+      when 4
+        update_subject
+      when 5
+        menu = false
+      else
+        puts "Invalid choice"
+      end     
     end
   elsif choice == 4
-    puts "Choose a number"
-    puts "[1] Adds new teacher"
-    puts "[2] Deletes teacher"
-    puts "[3] Display teachers"
-    puts "[4] Update teacher"
-    choice_2 = gets.chomp.to_i
-    case choice_2
-    when 1
-      new_teacher
-    when 2
-      delete_teacher
-    when 3
-      display_teacher
-    when 4
-      update_teacher
-    else
-      puts "Invalid choice"
+    menu = true
+    while menu
+      puts "Choose a number"
+      puts "[1] Adds new teacher"
+      puts "[2] Deletes teacher"
+      puts "[3] Display teachers"
+      puts "[4] Update teacher"
+      puts "[5] Back to school management"
+      choice_2 = gets.chomp.to_i
+      case choice_2
+      when 1
+        new_teacher
+      when 2
+        delete_teacher
+      when 3
+        display_teacher
+      when 4
+        update_teacher
+      when 5
+        menu = false
+      else
+        puts "Invalid choice"
+      end   
     end
+    
   elsif choice == 5
     exit
   else
