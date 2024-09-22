@@ -103,14 +103,17 @@ def display_course
     end
   end
   puts "Enter Course ID"
-  course = Course.find(gets.chomp.to_i)
+  id = gets.chomp.to_i
+  course = Course.find(id)
   if course
     puts course.display
     menu_2 = true
     while menu_2 == true
       puts "[1] Add subject"
       puts "[2] Remove subject"
-      puts "[3] Back to course management"
+      puts "[3] View All Students belong to this course"
+      puts "[4] View All Subject belong to this course"
+      puts "[5] Back to course management"
       case choice_3 = gets.chomp.to_i
       when 1
         puts "List of Subject"
@@ -126,27 +129,29 @@ def display_course
         course_subject.subject_id = gets.chomp.to_i
         course_subject.save
       when 2
-        CourseSubject.all.each do |record|
-          puts record.display
-        end
-        course_subject = CourseSubject.new
-        puts "Enter the id of Course & Subject to be deleted"
-        course_subject = CourseSubject.find(gets.chomp.to_i)
-        if course_subject
-          course_subject.destroy
-          puts "Course & Subject destroyed successfully!"
-        else
-          puts "Course & Subject not found\n"
-        end     
+        # delete
+        # CourseSubject.all.each do |record|
+        #   puts record.display
+        # end
       when 3
+        student = Course.new
+        student.id = id
+        student.students.each do |s|
+          s.display
+        end
+      when 4
+        subject = Course.new
+        subject.id = id
+        subject.subjects.each do |s|
+          s.display
+        end
+      when 5
         menu_2 = false
       end
     end
   else
     puts "Course not found"
   end
-  
-  
 end
 
 def new_subject
