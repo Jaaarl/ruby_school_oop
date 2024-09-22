@@ -126,7 +126,18 @@ def display_course
         course_subject.subject_id = gets.chomp.to_i
         course_subject.save
       when 2
-        puts "Display Remove"
+        CourseSubject.all.each do |record|
+          puts record.display
+        end
+        course_subject = CourseSubject.new
+        puts "Enter the id of Course & Subject to be deleted"
+        course_subject = CourseSubject.find(gets.chomp.to_i)
+        if course_subject
+          course_subject.destroy
+          puts "Course & Subject destroyed successfully!"
+        else
+          puts "Course & Subject not found\n"
+        end     
       when 3
         menu_2 = false
       end
