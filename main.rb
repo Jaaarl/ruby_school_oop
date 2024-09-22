@@ -2,6 +2,7 @@ require_relative 'student'
 require_relative 'course'
 require_relative 'subject'
 require_relative 'teacher'
+require_relative 'course_subject'
 
 def new_student
   student = Student.new
@@ -101,6 +102,40 @@ def display_course
       puts course.display
     end
   end
+  puts "Enter Course ID"
+  course = Course.find(gets.chomp.to_i)
+  if course
+    puts course.display
+    menu_2 = true
+    while menu_2 == true
+      puts "[1] Add subject"
+      puts "[2] Remove subject"
+      puts "[3] Back to course management"
+      case choice_3 = gets.chomp.to_i
+      when 1
+        puts "List of Subject"
+        Subject.all.each do |subject|
+          if subject.deleted_at == nil
+            puts subject.display
+          end
+        end
+        puts "Enter the subject ID you want to add to course"
+        course_subject = CourseSubject.new
+        course_subject.id = CourseSubject.all.size + 1
+        course_subject.course_id = course.id
+        course_subject.subject_id = gets.chomp.to_i
+        course_subject.save
+      when 2
+        puts "Display Remove"
+      when 3
+        menu_2 = false
+      end
+    end
+  else
+    puts "Course not found"
+  end
+  
+  
 end
 
 def new_subject
