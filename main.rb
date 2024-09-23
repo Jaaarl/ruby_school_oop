@@ -25,6 +25,14 @@ def new_student
   puts "Enter Course ID"
   student.course_id = gets.chomp.to_i
   student.deleted_at = nil
+  
+  CourseSubject.all.each do |subject| 
+    if subject.course_id == student.course_id
+      student_subject = StudentSubject.new
+      student_subject.id = Student.all.size + 1
+      student_subject.subject_id = subject.subject_id
+    end
+  end
   student.save
   puts student.display
   puts "Student added successfully!"
