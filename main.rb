@@ -3,6 +3,7 @@ require_relative 'course'
 require_relative 'subject'
 require_relative 'teacher'
 require_relative 'course_subject'
+require_relative 'student_subject'
 
 def new_student
   student = Student.new
@@ -129,10 +130,18 @@ def display_course
         course_subject.subject_id = gets.chomp.to_i
         course_subject.save
       when 2
-        # delete
-        # CourseSubject.all.each do |record|
-        #   puts record.display
-        # end
+        CourseSubject.all.each do |record|
+          puts record.display
+        end
+        puts "Enter the subject ID you want to delete to course"
+        id = gets.chomp.to_i
+        subject = CourseSubject.find(id)
+        if subject
+          subject.destroy
+          puts "subject destroyed successfully"
+        else
+          puts "subject not found"
+        end
       when 3
         student = Course.new
         student.id = id
