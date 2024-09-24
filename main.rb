@@ -29,8 +29,9 @@ def new_student
   CourseSubject.all.each do |subject| 
     if subject.course_id == student.course_id
       student_subject = StudentSubject.new
-      student_subject.id = Student.all.size + 1
+      student_subject.id = StudentSubject.all.size + 1
       student_subject.subject_id = subject.subject_id
+      student_subject.save
     end
   end
   student.save
@@ -67,6 +68,20 @@ def display_student
     if student.deleted_at == nil
       puts student.display
     end
+  end
+  puts "Enter the student id you want see its subject"
+  student = Student.find(gets.chomp.to_i)
+  if student
+    puts "This are the subjects"
+    CourseSubject.all.each do |index|
+      if index.course_id == student.course_id
+        subject = Subject.find(index.subject_id)
+        print "#{subject.name}, "
+      end
+    end
+    print "\n"
+  else
+    puts "Student not found"
   end
 end
 

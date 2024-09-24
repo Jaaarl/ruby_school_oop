@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 require_relative 'course'
+require_relative 'subject'
 class Student
   attr_accessor :id, :name, :birth_date, :email, :phone_number, :deleted_at, :course_id
   @@records = []
@@ -48,5 +49,9 @@ class Student
 
   def self.find_by_email(email)
     return @@records.find { |student| student.email == email }
+  end
+
+  def subjects
+    Subject.all
   end
 end
