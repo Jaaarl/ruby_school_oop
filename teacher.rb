@@ -1,8 +1,8 @@
 # frozen_string_literal: true
-class Teacher
-  attr_accessor :id, :name, :birth_date, :email, :phone_number, :department, :deleted_at
+require_relative 'person'
+class Teacher < Person
+  attr_accessor :department
   @@records = []
-
   def save
     if id > 0 && id < self.class.all.size + 1
       existing_teacher = self.class.all.find { |teacher| teacher.id == id }

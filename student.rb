@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 require_relative 'course'
 require_relative 'subject'
-class Student
-  attr_accessor :id, :name, :birth_date, :email, :phone_number, :deleted_at, :course_id
+require_relative 'person'
+class Student < Person
+  attr_accessor :course_id
   @@records = []
 
   def save
