@@ -6,12 +6,12 @@ class Course
   def save
     if id > 0 && id < self.class.all.size + 1
       existing_course = self.class.all.find { |course| course.id == id }
-      puts "Enter name"  
+      puts "Enter name"
       existing_course.name = gets.chomp
       puts self.display
       puts "Course updated successfully!"
     else
-      @@records.prepend(self)   
+      @@records.prepend(self)
     end
   end
 

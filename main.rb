@@ -25,8 +25,8 @@ def new_student
   puts "Enter Course ID"
   student.course_id = gets.chomp.to_i
   student.deleted_at = nil
-  
-  CourseSubject.all.each do |subject| 
+
+  CourseSubject.all.each do |subject|
     if subject.course_id == student.course_id
       student_subject = StudentSubject.new
       student_subject.id = StudentSubject.all.size + 1
@@ -45,7 +45,7 @@ def update_student
   student = Student.find(gets.chomp.to_i)
   if student == nil
     puts "User Not found"
-  else 
+  else
     student.save
   end
 end
@@ -114,7 +114,7 @@ def update_course
   course = Course.find(gets.chomp.to_i)
   if course == nil
     puts "User Not found"
-  else 
+  else
     course.save
   end
 end
@@ -177,7 +177,7 @@ def display_course
         subject.id = id
         puts "the subjects are"
         subject.subjects.each do |s|
-          name =  Subject.find(s.subject_id)
+          name = Subject.find(s.subject_id)
           print "#{ name.name }, "
         end
         print "\n"
@@ -219,7 +219,7 @@ def update_subject
   subject = Subject.find(gets.chomp.to_i)
   if subject == nil
     puts "User Not found"
-  else 
+  else
     subject.save
   end
 end
@@ -269,7 +269,7 @@ def update_teacher
   teacher = Teacher.find(gets.chomp.to_i)
   if teacher == nil
     puts "User Not found"
-  else 
+  else
     teacher.save
   end
 end
@@ -315,7 +315,7 @@ while true
         menu = false
       else
         puts "Invalid choice"
-      end 
+      end
     end
   elsif choice == 2
     menu = true
@@ -365,7 +365,7 @@ while true
         menu = false
       else
         puts "Invalid choice"
-      end     
+      end
     end
   elsif choice == 4
     menu = true
@@ -390,9 +390,8 @@ while true
         menu = false
       else
         puts "Invalid choice"
-      end   
+      end
     end
-    
   elsif choice == 5
     exit
   else

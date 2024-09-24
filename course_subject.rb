@@ -1,4 +1,4 @@
-class CourseSubject 
+class CourseSubject
   attr_accessor :id, :course_id, :subject_id
   @@records = []
 

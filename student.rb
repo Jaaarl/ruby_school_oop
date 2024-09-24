@@ -2,6 +2,7 @@
 require_relative 'course'
 require_relative 'subject'
 require_relative 'person'
+
 class Student < Person
   attr_accessor :course_id
   @@records = []
@@ -9,7 +10,7 @@ class Student < Person
   def save
     if id > 0 && id < self.class.all.size + 1
       existing_student = self.class.all.find { |student| student.id == id }
-      puts "Enter name"  
+      puts "Enter name"
       existing_student.name = gets.chomp
       puts "Enter birth date"
       existing_student.birth_date = gets.chomp
@@ -28,10 +29,10 @@ class Student < Person
       puts self.display
       puts "Student Updated successfully!"
     else
-      @@records.prepend(self)   
+      @@records.prepend(self)
     end
   end
-  
+
   def destroy
     self.deleted_at = Time.now
   end

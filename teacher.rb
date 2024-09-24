@@ -1,12 +1,14 @@
 # frozen_string_literal: true
 require_relative 'person'
+
 class Teacher < Person
   attr_accessor :department
   @@records = []
+
   def save
     if id > 0 && id < self.class.all.size + 1
       existing_teacher = self.class.all.find { |teacher| teacher.id == id }
-      puts "Enter name"  
+      puts "Enter name"
       existing_teacher.name = gets.chomp
       puts "Enter birth date"
       existing_teacher.birth_date = gets.chomp
@@ -19,7 +21,7 @@ class Teacher < Person
       puts self.display
       puts "Teacher Updated successfully!"
     else
-      @@records.prepend(self)   
+      @@records.prepend(self)
     end
   end
 
