@@ -166,6 +166,7 @@ def display_course
           puts "subject not found"
         end
       when 3
+        puts "The Students belong to this course"
         student = Course.new
         student.id = id
         student.students.each do |s|
@@ -174,9 +175,12 @@ def display_course
       when 4
         subject = Course.new
         subject.id = id
+        puts "the subjects are"
         subject.subjects.each do |s|
-          s.display
+          name =  Subject.find(s.subject_id)
+          print "#{ name.name }, "
         end
+        print "\n"
       when 5
         menu_2 = false
       end
